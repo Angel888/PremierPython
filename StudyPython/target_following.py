@@ -70,8 +70,7 @@ while True:
         cv2.imshow("Security Feed", frame)
         cv2.imshow("Thresh", thresh)
         cv2.imshow("Frame Delta", frameDelta)
-        key = cv2.waitKey(1) & amp;
-        0xFF
+        key = cv2.waitKey(1)
 
         # 如果q键被按下，跳出循环
         if key == ord("q"):
