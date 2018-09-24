@@ -1,4 +1,10 @@
 # -*- coding: utf-8 -*-
+# author： Emily
+# 知乎回答： https://www.zhihu.com/question/26493945/answer/156025576
+# 参考: https://blog.csdn.net/hongbin_xu/article/details/78359663
+# dlib安装： https://blog.csdn.net/wjzhangcsu/article/details/72600689
+# Anaconda 安装： https://mirrors.tuna.tsinghua.edu.cn/help/anaconda/
+# Anaconda 使用： https://www.jianshu.com/p/eaee1fadc1e9
 import sys
 import dlib
 import cv2
