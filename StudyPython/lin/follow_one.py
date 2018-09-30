@@ -5,12 +5,27 @@
 # dlib安装： https://blog.csdn.net/wjzhangcsu/article/details/72600689
 # Anaconda 安装： https://mirrors.tuna.tsinghua.edu.cn/help/anaconda/
 # Anaconda 使用： https://www.jianshu.com/p/eaee1fadc1e9
+import argparse
 import sys
+import time
 import dlib
 import cv2
 
 tracker = dlib.correlation_tracker()  # 导入correlation_tracker()类
-cap = cv2.VideoCapture(0)  # OpenCV打开摄像头
+
+# 创建参数解析器并解析参数
+ap = argparse.ArgumentParser()
+ap.add_argument('-v', '--video', help='path to the videofile')
+args = vars(ap.parse_args())
+# 如果video参数为None，那么从摄像头读取数据
+if args.get("video", None) is None:
+    cap = cv2.VideoCapture(0)   # OpenCV打开摄像头
+    time.sleep(0.25)
+
+# 否则我们读取一个视频文件
+else:
+    cap = cv2.VideoCapture(args["video"])
+
 start_flag = True  # 标记，是否是第一帧，若在第一帧需要先初始化
 selection = None  # 实时跟踪鼠标的跟踪区域
 track_window = None  # 要检测的物体所在区域
